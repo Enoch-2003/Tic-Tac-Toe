@@ -27,20 +27,25 @@ boxes.forEach((box) =>{
         turn0 = false;
         count = count + 1;
         document.querySelector(".inp").value = "Turn for Player O";
+        draw();
       }
       else{
         box.innerText = "O";
         turn0 = true;
         count = count + 1;
         document.querySelector(".inp").value = "Turn for Player X";
-      }
-      if(count == 9 && w_check == false){
-      document.querySelector(".inp").value = "Match Draw";
+        draw();
       }
     }
     checkWin();
   })
 }) 
+const draw = () =>{
+   if(count == 9 && w_check == false){
+   document.querySelector(".inp").value = "Match Draw";
+  } 
+}
+
  const dis = () =>{
    turn0 = true;
    for(let box of boxes){
@@ -72,3 +77,4 @@ const checkWin = () => {
   
 rstB.addEventListener("click", reset);
 newG.addEventListener("click", reset);
+
